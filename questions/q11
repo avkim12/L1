@@ -1,0 +1,14 @@
+// вывод: fatal error: all goroutines are asleep - deadlock!
+
+func main() {
+  wg := sync.WaitGroup{}
+  for i := 0; i < 5; i++ {
+     wg.Add(1)
+     go func(wg sync.WaitGroup, i int) { // wg передается по значению
+        fmt.Println(i)
+        wg.Done() // счетчик декриминируется у нового wg
+     }(wg, i)
+  }
+  wg.Wait()
+  fmt.Println("exit")
+}

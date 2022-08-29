@@ -1,0 +1,8 @@
+0 байт
+
+Если заглянуть в файл https://golang.org/src/runtime/malloc.go ,то там есть глобальная переменная
+
+// base address for all 0-byte allocations
+var zerobase uintptr
+
+https://разработка-программ.рф/заметки/пустые-структуры-go/

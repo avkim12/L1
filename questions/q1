@@ -1,0 +1,5 @@
+New Way:
+strings.Builder
+
+Old Way:
+bytes.Buffer implements io.Writer

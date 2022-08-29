@@ -1,0 +1,3 @@
+slice := []int{}
+slice := make([]int, 0)
+slice := new([]int)

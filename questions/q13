@@ -1,0 +1,12 @@
+// вывод: [100 2 3 4 5]
+
+func someAction(v []int8, b int8) {
+	v[0] = 100
+	v = append(v, b) // создается новый слайс
+}
+
+func main() {
+	var a = []int8{1, 2, 3, 4, 5}
+	someAction(a, 6) // передается по значению, но слайс это ссылка на массив
+	fmt.Println(a)
+}
