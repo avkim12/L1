@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type Animal interface {
+type Feline interface {
 	SayMeow()
 }
 
@@ -14,32 +14,22 @@ func (c Cat) SayMeow() {
 }
 
 type Dog struct {
-	Cat
 }
 
-func (d *Dog) SayWoof() {
-	fmt.Println("Woof")
-}
-
-type AnimalTrainer struct {
-}
-
-func (at *AnimalTrainer) ConvertToMeow(a Animal) {
-	a.SayMeow()
+func (d Dog) ConvertToMeow() {
+	fmt.Println("Meow")
 }
 
 type DogAdapter struct {
-	d *Dog
+	d Dog
 }
 
 func (da DogAdapter) SayMeow() {
-	da.d.SayMeow()
+	da.d.ConvertToMeow()
 }
 
 func main() {
 
-	at := &AnimalTrainer{}
-	d := &Dog{}
-	da := &DogAdapter{d: d}
-	at.ConvertToMeow(da)
+	da := &DogAdapter{}
+	da.SayMeow()
 }
